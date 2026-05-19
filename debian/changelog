@@ -1,3 +1,9 @@
+deepin-voice-note (6.5.57) unstable; urgency=medium
+
+  * chore: bump version to 6.5.57
+
+ -- Wang Yu <wangyu@uniontech.com>  Tue, 19 May 2026 20:54:48 +0800
+
 deepin-voice-note (6.5.56) unstable; urgency=medium
 
   * chore: Unify linglong.yaml
