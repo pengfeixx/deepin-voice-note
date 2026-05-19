@@ -101,13 +101,16 @@ QPixmap LoadIconsWorker::greyPix(QPixmap pix)
 void LoadIconsWorker::run()
 {
     QString defaultIconPathFmt(":/icon/default_folder_icons/%1.svg");
+    QString grayIconPathFmt(":/icon/default_folder_icons_gray/%1.png");
 
     for (int i = 0; i < DEFAULTICONS_COUNT; i++) {
-        QString iconPath = defaultIconPathFmt.arg(i + 1);
-        DSvgRenderer svg(iconPath);
+        int iconIndex = i + 1;
+        DSvgRenderer svg(defaultIconPathFmt.arg(iconIndex));
         QPixmap bitmap(QPixmap::fromImage(svg.toImage(svg.defaultSize())));
         VNoteDataManager::m_defaultIcons[IconsType::DefaultIcon].push_back(bitmap);
-        VNoteDataManager::m_defaultIcons[IconsType::DefaultGrayIcon].push_back(greyPix(bitmap));
+
+        QPixmap grayIcon(grayIconPathFmt.arg(iconIndex));
+        VNoteDataManager::m_defaultIcons[IconsType::DefaultGrayIcon].push_back(grayIcon);
     }
 
     VNoteDataManager::m_iconLock.unlock();

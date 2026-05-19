@@ -76,7 +76,6 @@ void VNoteMainManager::initData()
     qInfo() << "Initializing data";
     VNoteDataManager::instance()->reqNoteDefIcons();
     VNoteDataManager::instance()->reqNoteFolders();
-    QThread::msleep(200);
     VNoteDataManager::instance()->reqNoteItems();
     qInfo() << "Data initialization finished";
 }

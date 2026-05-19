@@ -11,6 +11,16 @@
         <file>icon/default_folder_icons/7.svg</file>
         <file>icon/default_folder_icons/8.svg</file>
         <file>icon/default_folder_icons/9.svg</file>
+        <file>icon/default_folder_icons_gray/1.png</file>
+        <file>icon/default_folder_icons_gray/10.png</file>
+        <file>icon/default_folder_icons_gray/2.png</file>
+        <file>icon/default_folder_icons_gray/3.png</file>
+        <file>icon/default_folder_icons_gray/4.png</file>
+        <file>icon/default_folder_icons_gray/5.png</file>
+        <file>icon/default_folder_icons_gray/6.png</file>
+        <file>icon/default_folder_icons_gray/7.png</file>
+        <file>icon/default_folder_icons_gray/8.png</file>
+        <file>icon/default_folder_icons_gray/9.png</file>
         <file>icon/no_content.dci</file>
         <file>main.qml</file>
         <file>gui/VNoteToolButton.qml</file>
