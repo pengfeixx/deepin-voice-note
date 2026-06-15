@@ -433,6 +433,7 @@ void AudioWatcher::onDefaultSourceChanaged(const QDBusObjectPath &defaultSourceP
                                                 );
         m_defaultSourcePath = newPath;
         if (!newPath.isEmpty() && newPath != "/") {
+            qInfo() << "Re-initializing default source D-Bus interface for path:" << newPath;
             initDefaultSourceDBusInterface();
         } else {
             qWarning() << "DefaultSource path changed to invalid:" << newPath;
@@ -460,6 +461,7 @@ void AudioWatcher::onDefaultSinkChanaged(const QDBusObjectPath &defaultSinkePath
                                                 );
         m_defaultSinkPath = newPath;
         if (!newPath.isEmpty() && newPath != "/") {
+            qInfo() << "Re-initializing default sink D-Bus interface for path:" << newPath;
             initDefaultSinkDBusInterface();
         } else {
             qWarning() << "DefaultSink path changed to invalid:" << newPath;
