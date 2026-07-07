@@ -1016,7 +1016,11 @@ void VNoteMainWindow::onPreviewShortcut()
     QStringList shortcutString;
     QString param1 = "-j=" + QString(doc.toJson().data());
     QString param2 = "-p=" + QString::number(pos.x()) + "," + QString::number(pos.y());
-    shortcutString << param1 << param2;
+    const auto themeType = DGuiApplicationHelper::instance()->themeType();
+    const QColor windowColor = DGuiApplicationHelper::instance()->applicationPalette().window().color();
+    const bool darkTheme = themeType == DGuiApplicationHelper::DarkType || windowColor.value() < 128;
+    QString param3 = "--theme=" + QString(darkTheme ? "dark" : "light");
+    shortcutString << param1 << param2 << param3;
 
     QProcess *shortcutViewProcess = new QProcess(this);
     shortcutViewProcess->startDetached("deepin-shortcut-viewer", shortcutString);
