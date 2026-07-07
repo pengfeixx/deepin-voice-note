@@ -1,4 +1,4 @@
-// Copyright (C) 2019 ~ 2019 UnionTech Software Technology Co.,Ltd.
+// Copyright (C) 2019 - 2026 UnionTech Software Technology Co.,Ltd.
 // SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
@@ -158,6 +158,14 @@ void VlcPalyer::play()
         qInfo() << "Play new audio: " << videoUrl;
         player->addPlayFile(videoUrl);
         player->playByName(videoUrl);
+        //同一文件场景：MPV 不重新进入 Playing 状态（已经在 Playing），
+        //onGetState 中的 Playing && m_isChangePlayFile 分支不会被触发，
+        //需在此处直接重置标志，否则播放结束时 playEnd 不发出
+        if (m_isChangePlayFile && player->state() == PlayerEngine::CoreState::Playing) {
+            m_isChangePlayFile = false;
+            //同一文件 MPV 不会从头播放，需显式 seek 到起始位置
+            player->seekAbsolute(0);
+        }
     }
 #endif
 }
