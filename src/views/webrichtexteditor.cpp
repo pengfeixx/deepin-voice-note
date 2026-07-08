@@ -741,10 +741,8 @@ void WebRichTextEditor::onLoadFinsh()
 
 void WebRichTextEditor::setData(VNoteItem *data, const QString &reg)
 {
-    //有焦点先隐藏编辑工具栏
-    if (hasFocus()) {
-        emit JsContent::instance()->callJsHideEditToolbar();
-    }
+    //切换笔记时隐藏编辑工具栏，避免下拉状态残留
+    emit JsContent::instance()->callJsHideEditToolbar();
 
     if (nullptr == data) {
         this->setVisible(false);

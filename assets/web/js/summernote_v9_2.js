@@ -7303,6 +7303,8 @@
 
         AirPopover.prototype.hide = function () {
             this.$popover.find('.note-color').removeClass('open')
+            this.$popover.find('.note-fontsize-class').removeClass('open')
+            this.$popover.find('.note-font-family-class').removeClass('open')
             this.$popover.hide();
         };
         return AirPopover;
